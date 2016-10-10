@@ -1,7 +1,8 @@
 package politico
 
 import (
-	"html"
+	// "html"
+	"net/url"
 
 	"strings"
 	"time"
@@ -40,7 +41,11 @@ type Stories struct {
 type escapedString string
 
 func (t *escapedString) UnmarshalJSON(buf []byte) error {
-	*t = escapedString(html.UnescapeString(string(buf)))
+	s, err := url.QueryUnescape(string(buf[1 : len(buf)-1]))
+	if err != nil {
+		return err
+	}
+	*t = escapedString(s)
 	return nil
 }
 
