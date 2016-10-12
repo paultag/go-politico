@@ -62,9 +62,9 @@ type Story struct {
 	StoryType escapedString `json:"story_type"`
 	Tags      csvString     `json:"tags"`
 
-	AuthorBioHTML escapedString `json:"author_bio_html"`
+	AuthorBioHTML string `json:"author_bio_html"`
 	By            escapedString
-	BylineHTML    escapedString `json:"byline_html"`
+	BylineHTML    string `json:"byline_html"`
 
 	Date    politicoTime `json:"date"`
 	Updated politicoTime `json:"updated"`
@@ -72,7 +72,7 @@ type Story struct {
 	Title escapedString `json:"title"`
 	Dek   escapedString `json:"dek"`
 
-	HTML escapedString `json:"html"`
+	HTML string `json:"html"`
 
 	Links []struct {
 		Length   int    `json:"len"`
