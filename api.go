@@ -83,6 +83,8 @@ type Story struct {
 	Media struct {
 		Caption    escapedString `json:"caption"`
 		Credit     escapedString `json:"credit"`
+		URL        escapedString `json:"url"`
+		URLSmall   escapedString `json:"url_small"`
 		Renditions []struct {
 			DisplayName   escapedString `json:"displayName"`
 			EncodingRate  escapedString `json:"encodingRate"`
