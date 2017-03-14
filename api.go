@@ -15,6 +15,9 @@ type politicoTime struct {
 }
 
 func (t *politicoTime) UnmarshalJSON(buf []byte) error {
+	if string(buf) == "\"\"" {
+		return nil
+	}
 	buf = buf[:len(buf)-4]
 	/* Get rid of the "ET". This isn't a real timezone, and golang doesn't
 	 * know how to turn that into EST. Frickn'. Anyway. I'm going to go against
